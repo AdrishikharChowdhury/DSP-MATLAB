@@ -1,0 +1,37 @@
+x1=[1 0 1 2];
+x2=[-1 3 2 4];
+x3=[-1 -3 -1 4];
+x=[0:1:3];
+figure Name 'Convolution Property';
+subplot(3,3,1);
+stem(x,x1);
+title('1st Signal');
+subplot(3,3,2);
+stem(x,x2);
+title('2nd Signal');
+subplot(3,3,3);
+stem(x,x3);
+title('3rd Signal');
+subplot(3,3,4);
+stem(conv(x1,x2));
+title('Commutative Property LHS');
+subplot(3,3,5);
+stem(conv(x2,x1));
+title('Commutative Property RHS');
+subplot(3,3,6);
+stem(conv(x1,conv(x2,x3)));
+title('Associative Property LHS');
+subplot(3,3,7);
+stem(conv(conv(x1,x2),x3));
+title('Associative Property RHS');
+subplot(3,3,8);
+stem(conv(x1,x2+x3));
+title('Distributive Property LHS');
+subplot(3,3,9);
+stem(conv(x1,x2)+conv(x1,x3));
+title('Distributive Property RHS');
+for i=1:9
+subplot(3,3,i);
+xlabel('Time');
+ylabel('Amplitude');
+end

@@ -1,0 +1,14 @@
+x1=[3 5 8 7];
+autox1=autocorr(x1);
+figure Name 'Auto Correlation';
+subplot(1,2,1);
+stem(x1);
+title('Input Signal');
+subplot(1,2,2);
+stem(autox1);
+title('Output Signal');
+for i=1:2
+subplot(1,2,i);
+xlabel('Time');
+ylabel('Amplitude');
+end
