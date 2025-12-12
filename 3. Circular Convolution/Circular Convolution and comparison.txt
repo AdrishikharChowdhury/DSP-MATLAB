@@ -1,0 +1,31 @@
+x1=[1 0 1 2 -1];
+x2=[1 2 4 6];
+x1Pad=[x1 zeros(1,8-length(x1))];
+x2Pad=[x2 zeros(1,8-length(x2))];
+figure Name 'Circular & Linear Convolution';
+subplot(3,3,1);
+stem(x1);
+title('1st Signal');
+subplot(3,3,2);
+stem(x2);
+title('2nd Signal');
+subplot(3,3,3);
+stem(cconv(x1,x2));
+title('Circular Convoluted Signal');
+subplot(3,3,4);
+stem(x1Pad);
+title('Zero Paddded 1st Signal');
+subplot(3,3,5);
+stem(x2Pad);
+title('Zero Padded 2nd Signal');
+subplot(3,3,6);
+stem(cconv(x1Pad,x2Pad));
+title('Zero Padded Circular Convoluted Signal');
+subplot(3,3,7);
+stem(conv(x1Pad,x2Pad));
+title('Zero Padded Linear Convoluted Signal');
+for i=1:7
+subplot(3,3,i);
+xlabel('Time');
+ylabel('Amplitude');
+end
