@@ -1,0 +1,11 @@
+N=8;
+Wn=zeros(N,1);
+Wnmag=zeros(N,1);
+Wnphase=zeros(N,1);
+for i=0:N-1
+Wn(i+1)=exp(-1j*2*pi*i/N);
+end
+for i=0:N-1
+Wnmag(i+1)=abs(Wn(i+1));
+Wnphase(i+1)=angle(Wn(i+1));
+end

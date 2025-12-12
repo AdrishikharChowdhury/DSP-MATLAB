@@ -1,0 +1,41 @@
+h = [1 1 1];
+x = [3 -1 0 1 3 2 0 1 2 1];
+
+M = length(h);
+L = 4;                          % block length
+N = L + M - 1;                  % FFT length
+
+H = fft(h, N);
+y = zeros(1, length(x) + M - 1);
+
+idx = 1;
+while idx <= length(x)
+    xblk = x(idx : min(idx+L-1, length(x)));
+    Xblk = fft(xblk, N);
+    yblk = ifft(Xblk .* H);     % 1 x N (or N x 1), length N block
+
+    % Safe indices
+    startIdx = idx;
+    endIdx   = min(idx + N - 1, length(y));
+    len      = endIdx - startIdx + 1;
+
+    y(startIdx:endIdx) = y(startIdx:endIdx) + yblk(1:len);  % match lengths
+
+    idx = idx + L;
+end
+
+figure Name 'Overlap Save Method';
+subplot(1,3,1);
+stem(x);
+title('Input Signal');
+subplot(1,3,2);
+stem(h);
+title('Impulse Response');
+subplot(1,3,3);
+stem(y);
+title('Output Response');
+for i=1:3
+subplot(1,3,i);
+xlabel('Time');
+ylabel('Amplitude');
+end

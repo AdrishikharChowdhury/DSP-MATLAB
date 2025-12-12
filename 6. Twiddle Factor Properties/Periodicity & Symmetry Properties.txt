@@ -1,0 +1,33 @@
+N = 8;                      % choose any N
+k = 1;                      % any integer k
+n = 0:N-1;                  % n = 0..N-1
+
+W = exp(-1j*2*pi/N);        % base twiddle factor W_N
+
+%% Periodicity: W_N^{k(n+N)} = W_N^{kn}
+
+lhs_per = W.^(k*(n + N));   % W_N^{k(n+N)}
+rhs_per = W.^(k*n);         % W_N^{kn}
+
+per_error = max(abs(lhs_per - rhs_per));
+disp('Max periodicity error (should be ~0):');
+disp(per_error);
+
+%% Symmetry (conjugate): (W_N^{kn})* = W_N^{-kn}
+
+lhs_sym = conj(W.^(k*n));   % (W_N^{kn})*
+rhs_sym = W.^(-k*n);        % W_N^{-kn}
+
+sym_error = max(abs(lhs_sym - rhs_sym));
+disp('Max symmetry error (should be ~0):');
+disp(sym_error);
+
+%% Optional: display values for inspection
+disp('W_N^{kn}:');
+disp(W.^(k*n));
+
+disp('(W_N^{kn})* :');
+disp(conj(W.^(k*n)));
+
+disp('W_N^{-kn}:');
+disp(W.^(-k*n));
