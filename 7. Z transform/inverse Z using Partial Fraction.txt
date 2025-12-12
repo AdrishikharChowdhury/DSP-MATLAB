@@ -1,0 +1,10 @@
+syms n z;
+numerator=z+5;
+denominator=z^2+3*z+2;
+Hz=numerator/denominator;
+Yz=Hz/z;
+Yz_partial=partfrac(Yz/z);
+Hz_partial=simplify(z*Yz_partial);
+hn=iztrans(Hz_partial);
+pretty(hn);
+pretty(Hz_partial)

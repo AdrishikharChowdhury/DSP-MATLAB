@@ -1,0 +1,20 @@
+syms n z w0;
+a=1/4;
+x1_n=a^n;
+x2_n=sin(w0*n);
+x3_n=cos(w0*n);
+X1_z=simplify(ztrans(x1_n,n,z));
+X2_z=simplify(ztrans(x2_n,n,z));
+X3_z=simplify(ztrans(x3_n,n,z));
+invX1=simplify(iztrans(X1_z,n,z));
+invX2=simplify(iztrans(X2_z,n,z));
+invX3=simplify(iztrans(X3_z,n,z));
+pretty(x1_n)
+pretty(x2_n)
+pretty(x3_n)
+pretty(X1_z)
+pretty(X2_z)
+pretty(X3_z)
+pretty(invX1)
+pretty(invX2)
+pretty(invX3)
