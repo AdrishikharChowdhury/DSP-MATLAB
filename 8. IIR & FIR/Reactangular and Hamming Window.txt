@@ -1,0 +1,26 @@
+wc=0.5*pi;
+N=25;
+alpha=(N-1)/2;
+cps=0.001;
+n=0:1:N-1;
+hd=sin(wc*(n-alpha+cps))./(pi*(n-alpha+cps));
+wr=boxcar(N);
+hn=hd.*wr';
+w=0:0.01:pi;
+h=freqz(hn,1,w);
+figure Name 'Rectangular and Hamming Windows Sequences';
+subplot(2,1,1);
+plot(w/pi,abs(h));
+xlabel('Normalised Frequency/omega/pi');
+ylabel('Magnitude');
+title('Rectangular Window');
+hold on
+wh=hamming(N);
+hn=hd.*wh';
+w=0:0.01:pi;
+h=freqz(hn,1,w);
+subplot(2,1,2);
+plot(w/pi,abs(h),'-');
+xlabel('Normalised Frequency/omega/pi');
+ylabel('Magnitude');
+title('Hamming Window');

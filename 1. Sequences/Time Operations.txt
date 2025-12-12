@@ -1,0 +1,27 @@
+a=linspace(0,20);
+b=sin(a);
+c=sin(a-5);
+d=sin(a+5);
+e=sin(5*a);
+f=sin(-a);
+figure Name 'Assignment 3';
+subplot(2,3,1);
+stem(a,b);
+title('Original Sequece');
+subplot(2,3,2);
+stem(a,c);
+title('Delayed Sequece');
+subplot(2,3,3);
+stem(a,d);
+title('Advanced Sequece');
+subplot(2,3,4);
+stem(a,e);
+title('Scaled Sequece');
+subplot(2,3,5);
+stem(a,f);
+title('Reversed Sequece');
+for i=1:5
+subplot(2,3,i);
+xlabel('Time');
+ylabel('Amplitude');
+end

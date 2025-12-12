@@ -1,0 +1,27 @@
+x1=[1 0 1 2];
+x2=[1 2 4 6];
+x=[0:1:length(x2)-1];
+figure Name 'Assignment 1';
+subplot(5,2,1);
+stem(x,x1);
+title('1st Signal');
+subplot(5,2,2);
+stem(x,x2);
+title('2nd Signal');
+for i=0:6
+subplot(5,2,i+3);
+stem(i-x,x2);
+if i==0
+	title('x2(-n)');
+else
+	title(sprintf('x2(%d-n)',i));
+end
+end
+subplot(5,2,10);
+stem(conv(x1,x2));
+title('Convoluted Signal');
+for i=1:10
+subplot(5,2,i);
+xlabel('Time');
+ylabel('Amplitude');
+end

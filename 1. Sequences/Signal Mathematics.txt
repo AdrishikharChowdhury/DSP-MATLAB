@@ -1,0 +1,23 @@
+x=linspace(0,10);
+y=linspace(10,20);
+figure Name 'Assignment 2';
+subplot(2,3,1);
+stem(x,sin(x));
+title('1st Signal');
+subplot(2,3,2);
+stem(y,sin(y));
+title('2nd Signal');
+subplot(2,3,3);
+stem(sin(x)+sin(y));
+title('Signal Addition');
+subplot(2,3,4);
+stem(sin(x)-sin(y));
+title('Signal Subtraction');
+subplot(2,3,5);
+stem(sin(x).*sin(y));
+title('Signal Multiplication');
+for i=1:5
+subplot(2,3,i);
+xlabel('Time');
+ylabel('Amplitude');
+end

@@ -1,0 +1,17 @@
+x=linspace(1,1,20);
+y=linspace(0,4*pi);
+figure Name 'Assignment 1';
+subplot(2,2,1);
+stem(x);
+title('Unit Step Sequence');
+subplot(2,2,2);
+stem(y,sin(y));
+title('Sinusoidal Sequence');
+subplot(2,2,3);
+stem(y,exp(y));
+title('Exponential Sequence');
+for i=1:3
+subplot(2,2,i);
+xlabel('Time');
+ylabel('Amplitude');
+end

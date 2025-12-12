@@ -1,0 +1,9 @@
+X=[3 3+2i 3 3-2i]; % Input the given dft sequence
+N=length(X);
+x=zeros(N,1);
+for i=0:N-1
+for k=0:N-1
+x(k+1)=x(k+1)+X(i+1)*exp(1j*2*pi*k*(i)/N);
+end
+end
+x=x.*(1/N);
